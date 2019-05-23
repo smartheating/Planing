@@ -1,0 +1,17 @@
+version: '3.7'
+
+services: 
+  planing-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: planing
+    ports:
+      - 9012:9012
+    container_name: planing
+    hostname: planing
+
+networks:
+  default:
+    external:
+      name: smartheating
