@@ -10,6 +10,11 @@ server:
 ---
 spring:
   profiles: dev
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitUser
+    password: rabbitPass
 eureka:
   client:
     serviceUrl:
@@ -21,6 +26,11 @@ eureka:
 ---
 spring:
   profiles: docker
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: rabbitUser
+    password: rabbitPass
 eureka:
   client:
     serviceUrl:
