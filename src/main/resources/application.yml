@@ -9,10 +9,6 @@ server:
 
 ---
 spring:
-  autoconfigure:
-    exclude:
-    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-    - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
   profiles: dev
   rabbitmq:
     host: localhost
@@ -29,10 +25,6 @@ eureka:
     
 ---
 spring:
-  autoconfigure:
-    exclude:
-    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-    - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
   profiles: docker
   rabbitmq:
     host: rabbitmq
