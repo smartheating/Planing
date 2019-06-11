@@ -1,6 +1,9 @@
-FROM java:8-jdk-alpine
-VOLUME /tmp
-EXPOSE 9012
-ARG JAR_FILE=target/planing-0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} planing.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=aws","-jar","/planing.jar"]
+FROM maven:3-jdk-8
+
+RUN git clone https://github.com/smartheating/CommonsModule.git
+WORKDIR /CommonsModule
+RUN mvn clean install -DskipTests -q
+RUN git clone https://github.com/smartheating/InputAdapter.git /Planing
+WORKDIR /Planing
+RUN mvn clean install -DskipTests -q
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=aws","-jar","target/planing-0.0.1-SNAPSHOT.jar"]
